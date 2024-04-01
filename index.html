@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Macchina Razzo | Web Oficial</title>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    /* Animación de desplazamiento suave */
+    html {
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('contents/Main.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -2; /* Asegúrate de que la capa esté detrás del contenido */
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      color: white;
+      position: relative;
+      margin: 0;
+      height: 2000px; /* Altura suficiente para permitir el desplazamiento */
+    }
+    .bloque {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .bloque > .contenido {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .logo-main {
+      width: 350px; /* Tamaño en pixeles del logo */
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+  <div id="app">
+    <nav class="sticky-nav flex justify-between items-center py-4 px-8 border-b border-gray-800 bg-black">
+      <div class="flex items-center space-x-6">
+        <ul class="flex space-x-4">
+          <li>
+            <a href="index.html" class="text-white">MACCHINA RAZZO ||</a>
+          </li>
+          <li>
+            <a href="about.html" class="text-white">SOBRE NOSOTROS</a>
+          </li>
+          <li>
+            <a href="index.html" class="text-white">MODELOS</a>
+          </li>
+          <li>
+            <a href="index.html" class="text-white">CONTACTO</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex items-center space-x-4">
+        <ul class="flex space-x-4">
+          <li>
+            <a href="index.html" class="text-white">.</a>
+          </li>
+          <li>
+            <a href="index.html" class="text-white">.</a>
+          </li>
+          <li>
+            <a href="index.html" class="text-white">.</a>
+          </li>
+        </ul>
+        <a href="index.html" <i class="fas fa-shopping-cart"></i> </a>
+        <a href="index.html" <i class="fas fa-search"></i> </a>
+        <a href="index.html" <i class="fas fa-bars"></i> </a>
+      </div>
+    </nav>
+  </div>
+
+<!-- Bloque de Bienvenida -->
+<div class="bloque" id="bloque-1">
+  <div class="contenido text-center" style="flex-direction: column; justify-content: center; align-items: center;">
+    <img src="contents/logo.png" alt="Logotipo de Macchina Razzo" class="mb-4 logo-main">
+    <h1 class="text-6xl font-bold mb-4">Macchina Razzo</h1>
+    <p class="text-sm mb-2">En cada vuelta, M.R. adelanta; donde el camino se curva, su leyenda se esculpe.</p>
+    <i class="fas fa-chevron-down" onclick="scrollToNextBlock()"></i>
+  </div>
+</div>
+</div>
+</div>
+
+  <!-- Bloque #1 -->
+  <div class="bloque" id="bloque-2">
+    <div style="display: flex; width: 100%; margin-top: 2rem;">
+      <!-- Columna de Texto con Fondo Oscuro -->
+      <div style="width: 50%; background-color: rgba(0,0,0,0.7); color: white; padding: 2rem; text-align: justify;">
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">
+          Macchina Razzo: Fulmine Agera RS
+        </h2>
+        <p style="margin-bottom: 1rem;">
+          Presentamos el Fulmine Agera RS, una maravilla de ingeniería y diseño que encapsula el espíritu de innovación y lujo. Con su silueta aerodinámica y tren motriz híbrido de última generación, el Fulmine Agera RS ofrece un rendimiento emocionante sin comprometer la eficiencia. En el interior, los pasajeros son tratados a una cabina donde el lujo y la tecnología se cruzan, caracterizada por cuero cosido a mano, opciones de conectividad avanzadas y un sistema de audio a medida. El Fulmine Agera RS no es solo un automóvil; es un viaje hacia el futuro de la excelencia automotriz.
+        </p>
+        <p>
+          Los vehículos Macchina Razzo son reconocidos por su alto rendimiento, lujo y diseño italiano distintivo. Conocidos por sus potentes motores, líneas elegantes y estilo icónico, los autos Macchina Razzo ofrecen una experiencia de conducción sin paralelo. Cada modelo presume de tecnología de vanguardia, ingeniería de precisión y un compromiso con la excelencia que define el legado de la marca. Desde un rugiente V12 de 8 cilindros con tecnología de alta gama, la línea de Fulmine Agera RS atiende una gama de preferencias mientras mantiene el característico estilo de la marca. Ya sea la emoción de la pista de carreras o el atractivo de recorrer las calles con estilo, un vehículo nuestro es una declaración de audacia y pasión.
+        </p>
+      </div>
+    
+      <!-- Columna de Imagen del Vehículo -->
+      <div style="width: 50%; display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.7); position: relative;" id="contenedorImagenBloque2">
+        <img src="contents/Fulmine-Agera-RS.jpg" style="max-width: 90%; max-height: 90%;" alt="Imagen del Vehículo Bloque 2" id="imagenVehiculoBloque2">
+        <i id="playPauseBtnBloque2" class="fas fa-play" style="position: absolute; font-size: 48px; color: white; cursor: pointer;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<audio id="audioElementBloque2">
+  <source src="contents/fulmine-agera-rs.mp3" type="audio/mp3">
+  Tu navegador no soporta audio HTML5.
+</audio>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('playPauseBtnBloque2').addEventListener('click', function() {
+    var audio = document.getElementById('audioElementBloque2');
+    var playPauseBtn = this; // Referencia al botón de play/pause específico de este bloque
+
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.classList.remove('fa-play');
+        playPauseBtn.classList.add('fa-pause');
+    } else {
+        audio.pause();
+        playPauseBtn.classList.remove('fa-pause');
+        playPauseBtn.classList.add('fa-play');
+    }
+  });
+
+  // Opcional: Cambiar el icono a 'play' cuando el audio termine
+  document.getElementById('audioElementBloque2').addEventListener('ended', function() {
+    var playPauseBtn = document.getElementById('playPauseBtnBloque2');
+    playPauseBtn.classList.remove('fa-pause');
+    playPauseBtn.classList.add('fa-play');
+  });
+});
+</script>
+
+
+  <!-- Bloque #2 -->
+  <div class="bloque" id="bloque-3">
+    <div style="display: flex; width: 100%; margin-top: 2rem;">
+      <!-- Columna de Texto con Fondo Oscuro -->
+      <div style="width: 50%; background-color: rgba(0,0,0,0.7); color: white; padding: 2rem; text-align: justify;">
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">
+          Macchina Razzo: SVJ Fiorano GT 
+        </h2>
+        <p style="margin-bottom: 1rem;">
+          El SVJ Fiorano GT se alza como el pináculo de la velocidad y el refinamiento dentro de la línea de vehículos de nuestra marca, siendo aclamado como el más rápido de todos. Con una fusión perfecta de elegancia y velocidad, este superdeportivo encarna la excelencia automotriz al ofrecer una experiencia de conducción que combina la emoción vertiginosa de la velocidad con la distinción incomparable del lujo, estableciendo así un estándar inigualable en el mundo de los automóviles de alto rendimiento.
+        </p>
+        <p>
+          El SVJ Fiorano GT no solo destaca por su velocidad incomparable, sino también por su meticuloso diseño y su innovadora ingeniería. Cada detalle de este automóvil está cuidadosamente diseñado para optimizar su rendimiento y brindar una experiencia de conducción excepcional. Desde su aerodinámica agresiva hasta su interior lujosamente equipado, cada aspecto del SVJ GT FIORANO refleja la pasión y el compromiso de nuestra marca con la excelencia. Con tecnología de vanguardia y un estilo atemporal, este superdeportivo representa la culminación de años de experiencia y dedicación en la búsqueda de la perfección automotriz.
+        </p>
+      </div>
+    
+      <!-- Columna de Imagen del Vehículo -->
+      <div style="width: 50%; display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.7); position: relative;" id="contenedorImagenBloque3">
+        <img src="contents/SVJ-Fiorano-GT.jpg" style="max-width: 90%; max-height: 90%;" alt="Imagen del Vehículo Bloque 3" id="imagenVehiculoBloque3">
+        <i id="playPauseBtnBloque3" class="fas fa-play" style="position: absolute; font-size: 48px; color: white; cursor: pointer;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<audio id="audioElementBloque3">
+  <source src="contents/svj-fiorano-gt.mp3" type="audio/mp3">
+  Tu navegador no soporta audio HTML5.
+</audio>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+// Repite este bloque para cada nuevo audio, ajustando los IDs según corresponda.
+document.getElementById('playPauseBtnBloque3').addEventListener('click', function() {
+  var audio = document.getElementById('audioElementBloque3');
+  var playPauseBtn = this; // Referencia al botón de play/pause específico de este bloque
+
+  if (audio.paused) {
+      audio.play();
+      playPauseBtn.classList.remove('fa-play');
+      playPauseBtn.classList.add('fa-pause');
+  } else {
+      audio.pause();
+      playPauseBtn.classList.remove('fa-pause');
+      playPauseBtn.classList.add('fa-play');
+  }
+});
+
+// Opcional: Cambiar el icono a 'play' cuando el audio termine
+document.getElementById('audioElementBloque3').addEventListener('ended', function() {
+  var playPauseBtn = document.getElementById('playPauseBtnBloque3');
+  playPauseBtn.classList.remove('fa-pause');
+  playPauseBtn.classList.add('fa-play');
+});
+});
+</script>
+
+  <!-- Bloque #3 -->
+  <div class="bloque" id="bloque-3">
+  <div style="display: flex; width: 100%; margin-top: 2rem;">
+    <!-- Columna de Texto con Fondo Oscuro -->
+    <div style="width: 50%; background-color: rgba(0,0,0,0.7); color: white; padding: 2rem; text-align: justify;">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">
+        Macchina Razzo: P1 AVENTEDOR
+      </h2>
+      <p style="margin-bottom: 1rem;">
+        El P1 AVENTEDOR destaca como el epítome de la velocidad, estableciéndose como el pináculo de la ingeniería automotriz. Con una potencia que desafía los límites y una aerodinámica meticulosamente diseñada, este modelo es el verdadero rey de la carretera, marcando su dominio en cada curva y recta. Su prestigioso linaje se combina con una estética imponente y líneas elegantes, creando una presencia que inspira admiración y respeto en igual medida.
+      </p>
+      <p>
+        En su interior, el P1 AVENTEDOR fusiona la comodidad y el lujo con la tecnología más avanzada, proporcionando un espacio que envuelve al conductor en un ambiente de sofisticación y confort supremo. Cada aspecto está meticulosamente diseñado para ofrecer una experiencia de conducción sin igual, donde la emoción y el rendimiento se encuentran en perfecto equilibrio, creando así una conexión única entre el conductor y la máquina.
+      </p>
+    </div>
+
+    <!-- Columna de Imagen del Vehículo -->
+    <div style="width: 50%; display: flex; justify-content: center; align-items: center; background-color: rgba(0,0,0,0.7); position: relative;" id="contenedorImagenBloque4">
+      <img src="contents/P1-VENTEDOR.jpg" style="max-width: 90%; max-height: 90%;" alt="Imagen del Vehículo Bloque 4" id="imagenVehiculoBloque4">
+      <i id="playPauseBtnBloque4" class="fas fa-play" style="position: absolute; font-size: 48px; color: white; cursor: pointer;"></i>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<audio id="audioElementBloque4">
+<source src="contents/p1-aventedor.mp3" type="audio/mp3">
+Tu navegador no soporta audio HTML5.
+</audio>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+// Asegúrate de repetir un bloque de código similar para cada nuevo audio,
+// ajustando los IDs según corresponda para cada bloque.
+document.getElementById('playPauseBtnBloque4').addEventListener('click', function() {
+  var audio = document.getElementById('audioElementBloque4');
+  var playPauseBtn = this; // Referencia al botón de play/pause específico de este bloque.
+
+  if (audio.paused) {
+      audio.play();
+      playPauseBtn.classList.remove('fa-play');
+      playPauseBtn.classList.add('fa-pause');
+  } else {
+      audio.pause();
+      playPauseBtn.classList.remove('fa-pause');
+      playPauseBtn.classList.add('fa-play');
+  }
+});
+
+// Opcional: Cambiar el icono a 'play' cuando el audio termine
+document.getElementById('audioElementBloque4').addEventListener('ended', function() {
+  var playPauseBtn = document.getElementById('playPauseBtnBloque4');
+  playPauseBtn.classList.remove('fa-pause');
+  playPauseBtn.classList.add('fa-play');
+});
+});
+</script>
+
+<footer class="bg-black text-white py-8">
+<div class="max-w-6xl mx-auto px-4">
+  <div class="flex justify-between">
+    <div>
+      <h3 class="text-white mb-2">Más Información</h3>
+      <ul>
+        <li><a href="sobrenosotros.html" class="text-gray-400 hover:text-gray-200">Sobre Nosotros</a></li>
+        <li><a href="privacidad.html" class="text-gray-400 hover:text-gray-200">Política de Privacidad</a></li>
+        <li><a href="terminos.html" class="text-gray-400 hover:text-gray-200">Términos y Condiciones</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-white mb-2">Contacto</h3>
+      <ul>
+        <li><a href="contacto.html" class="text-gray-400 hover:text-gray-200">Contactanos</a></li>
+        <li><a href="mailto:contacto@macchinarazzo.com" class="text-gray-400 hover:text-gray-200">contacto@macchinarazzo.com</a></li>
+        <li><a href="tel:+54 9 11 2513-0479" class="text-gray-400 hover:text-gray-200">+54 9 11 2513-0479 | +54 9 11 2154-8683</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-white mb-2">Síguenos</h3>
+      <div class="flex space-x-4">
+        <a href="https://facebook.com" class="text-gray-400 hover:text-gray-200"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="text-gray-400 hover:text-gray-200"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" class="text-gray-400 hover:text-gray-200"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+let lastScrollY = window.scrollY;
+let isScrolling = false;
+
+window.addEventListener('wheel', function(e) {
+    e.preventDefault(); // Previene el desplazamiento predeterminado
+
+    if (!isScrolling) {
+        isScrolling = true;
+
+        // Calcula la nueva posición de desplazamiento
+        let newY = lastScrollY + e.deltaY * 7.1;
+        
+        // Realiza el desplazamiento suave
+        window.scrollTo({ top: newY, behavior: 'smooth' });
+        
+        // Actualiza la última posición de desplazamiento después de que se complete el desplazamiento
+        setTimeout(function() {
+            lastScrollY = window.scrollY;
+            isScrolling = false;
+        }, 500); // Ajusta este tiempo según sea necesario
+    }
+}, { passive: false }); // El 'passive: false' permite llamar a preventDefault()
+</script>
+
+<script>
+// Este script asegura que el desplazamiento suave funcione para cualquier enlace ancla.
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  for (const link of links) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href === "#") {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
