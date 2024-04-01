@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Macchina Razzo | Web Oficial
+  </title>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Animación de desplazamiento suave */
+    html {
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('contents/Main.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -2; /* Asegúrate de que la capa esté detrás del contenido */
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      color: white;
+      position: relative;
+      margin: 0;
+      height: 2000px; /* Altura suficiente para permitir el desplazamiento */
+    }
+    .bloque {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .bloque > .contenido {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .logo-main {
+      width: 80%; /* Tamaño adaptable del logo */
+      max-width: 350px; /* Tamaño máximo en pixeles del logo */
+    }
+    @media (max-width: 768px) {
+      .bloque > .contenido {
+        padding: 1rem;
+      }
+      .texto-bloque {
+        width: 100%;
+        padding: 1rem;
+      }
+      .imagen-bloque {
+        width: 100%;
+        padding: 1rem;
+      }
+      .play-pause-btn {
+        font-size: 36px;
+      }
+    }
+  </style>
+ </head>
+ <body class="bg-black text-white">
+  <div id="app">
+   <nav class="sticky-nav flex justify-between items-center py-4 px-8 border-b border-gray-800 bg-black">
+    <div class="flex items-center space-x-6">
+     <ul class="flex space-x-4">
+      <li>
+       <a class="text-white" href="index.html">
+        MACCHINA RAZZO ||
+       </a>
+      </li>
+      <li>
+       <a class="text-white" href="about.html">
+        SOBRE NOSOTROS
+       </a>
+      </li>
+      <li>
+       <a class="text-white" href="index.html">
+        MODELOS
+       </a>
+      </li>
+      <li>
+       <a class="text-white" href="index.html">
+        CONTACTO
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="flex items-center space-x-4">
+     <a class="text-white" href="index.html">
+      <i class="fas fa-shopping-cart">
+      </i>
+     </a>
+     <a class="text-white" href="index.html">
+      <i class="fas fa-search">
+      </i>
+     </a>
+     <a class="text-white" href="index.html">
+      <i class="fas fa-bars">
+      </i>
+     </a>
+    </div>
+   </nav>
+   <!-- Bloque de Bienvenida -->
+   <div class="bloque" id="bloque-1">
+    <div class="contenido flex flex-col justify-center items-center text-center p-4">
+     <img alt="Logotipo de Macchina Razzo" class="logo-main mb-4" height="150" src="contents/logo.png" width="350"/>
+     <h1 class="text-4xl sm:text-6xl font-bold mb-4">
+      Macchina Razzo
+     </h1>
+     <p class="text-sm mb-2">
+      En cada vuelta, M.R. adelanta; donde el camino se curva, su leyenda se esculpe.
+     </p>
+     <i class="fas fa-chevron-down" onclick="scrollToNextBlock()">
+     </i>
+    </div>
+   </div>
+   <!-- Bloque #1 -->
+   <div class="bloque" id="bloque-2">
+    <div class="flex flex-wrap w-full mt-2">
+     <!-- Columna de Texto con Fondo Oscuro -->
+     <div class="texto-bloque bg-opacity-70 bg-black text-white p-4 text-justify">
+      <h2 class="text-2xl font-bold mb-4">
+       Macchina Razzo: Fulmine Agera RS
+      </h2>
+      <p class="mb-4">
+       Presentamos el Fulmine Agera RS, una maravilla de ingeniería y diseño que encapsula el espíritu de innovación y lujo. Con su silueta aerodinámica y tren motriz híbrido de última generación, el Fulmine Agera RS ofrece un rendimiento emocionante sin comprometer la eficiencia. En el interior, los pasajeros son tratados a una cabina donde el lujo y la tecnología se cruzan, caracterizada por cuero cosido a mano, opciones de conectividad avanzadas y un sistema de audio a medida. El Fulmine Agera RS no es solo un automóvil; es un viaje hacia el futuro de la excelencia automotriz.
+      </p>
+     </div>
+     <!-- Columna de Imagen del Vehículo -->
+     <div class="imagen-bloque flex justify-center items-center bg-opacity-70 bg-black relative p-4">
+      <img alt="Imagen del Vehículo Fulmine Agera RS" class="max-w-full max-h-full" height="400" src="contents/Fulmine-Agera-RS.jpg" width="600"/>
+      <i class="fas fa-play play-pause-btn absolute text-white cursor-pointer" id="playPauseBtnBloque2">
+      </i>
+     </div>
+    </div>
+   </div>
+   <audio id="audioElementBloque2">
+    <source src="contents/fulmine-agera-rs.mp3" type="audio/mp3"/>
+    Tu navegador no soporta audio HTML5.
+   </audio>
+   <!-- Bloque #2 -->
+   <div class="bloque" id="bloque-3">
+    <div class="flex flex-wrap w-full mt-2">
+     <!-- Columna de Texto con Fondo Oscuro -->
+     <div class="texto-bloque bg-opacity-70 bg-black text-white p-4 text-justify">
+      <h2 class="text-2xl font-bold mb-4">
+       Macchina Razzo: SVJ Fiorano GT
+      </h2>
+      <p class="mb-4">
+       El SVJ Fiorano GT se alza como el pináculo de la velocidad y el refinamiento dentro de la línea de vehículos de nuestra marca, siendo aclamado como el más rápido de todos. Con una fusión perfecta de elegancia y velocidad, este superdeportivo encarna la excelencia automotriz al ofrecer una experiencia de conducción que combina la emoción vertiginosa de la velocidad con la distinción incomparable del lujo, estableciendo así un estándar inigualable en el mundo de los automóviles de alto rendimiento.
+      </p>
+     </div>
+     <!-- Columna de Imagen del Vehículo -->
+     <div class="imagen-bloque flex justify-center items-center bg-opacity-70 bg-black relative p-4">
+      <img alt="Imagen del Vehículo SVJ Fiorano GT" class="max-w-full max-h-full" height="400" src="contents/SVJ-Fiorano-GT.jpg" width="600"/>
+      <i class="fas fa-play play-pause-btn absolute text-white cursor-pointer" id="playPauseBtnBloque3">
+      </i>
+     </div>
+    </div>
+   </div>
+   <audio id="audioElementBloque3">
+    <source src="contents/svj-fiorano-gt.mp3" type="audio/mp3"/>
+    Tu navegador no soporta audio HTML5.
+   </audio>
+   <!-- Bloque #3 -->
+   <div class="bloque" id="bloque-4">
+    <div class="flex flex-wrap w-full mt-2">
+     <!-- Columna de Texto con Fondo Oscuro -->
+     <div class="texto-bloque bg-opacity-70 bg-black text-white p-4 text-justify">
+      <h2 class="text-2xl font-bold mb-4">
+       Macchina Razzo: P1 AVENTEDOR
+      </h2>
+      <p class="mb-4">
+       El P1 AVENTEDOR destaca como el epítome de la velocidad, estableciéndose como el pináculo de la ingeniería automotriz. Con una potencia que desafía los límites y una aerodinámica meticulosamente diseñada, este modelo es el verdadero rey de la carretera, marcando su dominio en cada curva y recta. Su prestigioso linaje se combina con una estética imponente y líneas elegantes, creando una presencia que inspira admiración y respeto en igual medida.
+      </p>
+     </div>
+     <!-- Columna de Imagen del Vehículo -->
+     <div class="imagen-bloque flex justify-center items-center bg-opacity-70 bg-black relative p-4">
+      <img alt="Imagen del Vehículo P1 AVENTEDOR" class="max-w-full max-h-full" height="400" src="contents/P1-VENTEDOR.jpg"/>
+      <i class="fas fa-play play-pause-btn absolute text-white cursor-pointer" id="playPauseBtnBloque4">
+      </i>
+     </div>
+    </div>
+   </div>
+   <audio id="audioElementBloque4">
+    <source src="contents/p1-aventedor.mp3" type="audio/mp3"/>
+    Tu navegador no soporta audio HTML5.
+   </audio>
+   <footer class="bg-black text-white py-8">
+    <div class="max-w-6xl mx-auto px-4">
+     <div class="flex flex-wrap justify-between">
+      <div class="w-full sm:w-auto mb-4 sm:mb-0">
+       <h3 class="text-white mb-2">
+        Más Información
+       </h3>
+       <ul>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="sobrenosotros.html">
+          Sobre Nosotros
+         </a>
+        </li>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="privacidad.html">
+          Política de Privacidad
+         </a>
+        </li>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="terminos.html">
+          Términos y Condiciones
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="w-full sm:w-auto mb-4 sm:mb-0">
+       <h3 class="text-white mb-2">
+        Contacto
+       </h3>
+       <ul>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="contacto.html">
+          Contactanos
+         </a>
+        </li>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="mailto:contacto@macchinarazzo.com">
+          contacto@macchinarazzo.com
+         </a>
+        </li>
+        <li>
+         <a class="text-gray-400 hover:text-gray-200" href="tel:+54 9 11 2513-0479">
+          +54 9 11 2513-0479 | +54 9 11 2154-8683
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="w-full sm:w-auto">
+       <h3 class="text-white mb-2">
+        Síguenos
+       </h3>
+       <div class="flex space-x-4">
+        <a class="text-gray-400 hover:text-gray-200" href="https://facebook.com">
+         <i class="fab fa-facebook-f">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-gray-200" href="https://twitter.com">
+         <i class="fab fa-twitter">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-gray-200" href="https://instagram.com">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+   const { createApp, ref } = Vue
+    createApp({
+      setup() {
+        const message = ref('Hello vue!')
+        return {
+          message
+        }
+      }
+    }).mount('#app')
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+      const playPauseBtns = document.querySelectorAll('.play-pause-btn');
+      playPauseBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const audioId = this.id.replace('playPauseBtn', 'audioElement');
+          const audio = document.getElementById(audioId);
+          if (audio.paused) {
+            audio.play();
+            this.classList.remove('fa-play');
+            this.classList.add('fa-pause');
+          } else {
+            audio.pause();
+            this.classList.remove('fa-pause');
+            this.classList.add('fa-play');
+          }
+        });
+      });
+
+      // Opcional: Cambiar el icono a 'play' cuando el audio termine
+      const audioElements = document.querySelectorAll('audio');
+      audioElements.forEach(audio => {
+        audio.addEventListener('ended', function() {
+          const btnId = this.id.replace('audioElement', 'playPauseBtn');
+          const playPauseBtn = document.getElementById(btnId);
+          playPauseBtn.classList.remove('fa-pause');
+          playPauseBtn.classList.add('fa-play');
+        });
+      });
+    });
+  </script>
+ </body>
+</html>
